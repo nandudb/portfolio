@@ -867,6 +867,187 @@
     .footer__socials svg { width: 18px; height: 18px; }
 
     /* ============================================================
+       CERTIFICATIONS SECTION
+       ============================================================ */
+    .certs__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--space-6);
+    }
+
+    .cert-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      display: flex;
+      gap: var(--space-4);
+      align-items: flex-start;
+      transition: transform var(--transition), box-shadow var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cert-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .cert-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background: var(--color-primary);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    .cert-card:hover::before {
+      opacity: 1;
+    }
+
+    .cert-card__badge {
+      width: 3rem;
+      height: 3rem;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .cert-card__badge--oracle {
+      background: #FFF0E8;
+      color: #C74634;
+    }
+    [data-theme="dark"] .cert-card__badge--oracle {
+      background: #3D1A0F;
+      color: #F5845A;
+    }
+
+    .cert-card__badge--aws {
+      background: #FFF5E0;
+      color: #FF9900;
+    }
+    [data-theme="dark"] .cert-card__badge--aws {
+      background: #2E2000;
+      color: #FFAF38;
+    }
+
+    .cert-card__badge--devops {
+      background: var(--color-primary-light);
+      color: var(--color-primary);
+    }
+
+    .cert-card__badge--general {
+      background: var(--color-surface-alt);
+      color: var(--color-text-muted);
+    }
+
+    .cert-card__badge svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .cert-card__body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .cert-card__title {
+      font-size: var(--text-sm);
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: var(--space-1);
+    }
+
+    .cert-card__issuer {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-3);
+    }
+
+    .cert-card__meta {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+    }
+
+    .cert-card__status {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-1);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      padding: 2px var(--space-2);
+      border-radius: var(--radius-full);
+    }
+
+    .cert-card__status--active {
+      background: #D4EDDA;
+      color: #155724;
+    }
+    [data-theme="dark"] .cert-card__status--active {
+      background: #1A3325;
+      color: #6DAA45;
+    }
+
+    .cert-card__status--inprogress {
+      background: #FFF3CD;
+      color: #856404;
+    }
+    [data-theme="dark"] .cert-card__status--inprogress {
+      background: #2E2500;
+      color: #E8AF34;
+    }
+
+    .cert-card__status--placeholder {
+      background: var(--color-surface-alt);
+      color: var(--color-text-faint);
+    }
+
+    .cert-card__year {
+      font-size: var(--text-xs);
+      color: var(--color-text-faint);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .cert-card__edit-hint {
+      font-size: var(--text-xs);
+      color: var(--color-text-faint);
+      font-style: italic;
+      margin-top: var(--space-2);
+    }
+
+    .certs__cta {
+      margin-top: var(--space-8);
+      padding: var(--space-6);
+      border: 1.5px dashed var(--color-border);
+      border-radius: var(--radius-lg);
+      text-align: center;
+      color: var(--color-text-muted);
+      font-size: var(--text-sm);
+    }
+
+    .certs__cta a {
+      font-weight: 600;
+    }
+
+    @media (max-width: 480px) {
+      .certs__grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ============================================================
        SCROLL ANIMATIONS
        ============================================================ */
     .fade-up {
@@ -915,6 +1096,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#skills">Skills</a></li>
+        <li><a href="#certifications">Certifications</a></li>
         <li><a href="#contact">Contact</a></li>
         <li>
           <button class="theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
@@ -1219,6 +1401,162 @@
       </div>
     </div>
   </section>
+
+
+  <!-- ============================================================
+       CERTIFICATIONS SECTION
+       Edit: Replace placeholder cert names, issuers, years, and
+       badge types (oracle/aws/devops/general) with your real credentials.
+       Remove the certs__cta block once real certs are added.
+       ============================================================ -->
+  <section id="certifications">
+    <div class="container">
+      <span class="section-label">Credentials</span>
+      <h2 class="section-title fade-up">Certifications</h2>
+      <p class="section-desc fade-up">
+        Credentials that reflect 12+ years of hands-on expertise in Oracle database administration,
+        cloud infrastructure, and DevOps engineering.
+      </p>
+
+      <div class="certs__grid fade-up">
+
+        <!-- EDIT: Oracle DBA credential — update name/year once you have the exact cert -->
+        <div class="cert-card">
+          <div class="cert-card__header">
+            <span class="cert-card__badge cert-card__badge--oracle">Oracle</span>
+            <span class="cert-card__status cert-card__status--placeholder">Add Year</span>
+          </div>
+          <div class="cert-card__body">
+            <h3 class="cert-card__title">Oracle Certified Professional (OCP)</h3>
+            <p class="cert-card__issuer">Oracle Database Administrator</p>
+            <p class="cert-card__desc">
+              Validated through 12+ years of production Oracle 11g/12c/19c DBA work — monitoring,
+              tuning, backup/recovery, and high availability. Documented in oracle_master repo and
+              Oracle knowledge base blog.
+            </p>
+          </div>
+          <div class="cert-card__footer">
+            <span class="cert-card__meta">Inferred from experience &mdash; add official cert</span>
+          </div>
+        </div>
+
+        <!-- EDIT: Oracle E-Business Suite credential -->
+        <div class="cert-card">
+          <div class="cert-card__header">
+            <span class="cert-card__badge cert-card__badge--oracle">Oracle</span>
+            <span class="cert-card__status cert-card__status--placeholder">Add Year</span>
+          </div>
+          <div class="cert-card__body">
+            <h3 class="cert-card__title">Oracle E-Business Suite Apps DBA</h3>
+            <p class="cert-card__issuer">Oracle Applications Certified Professional</p>
+            <p class="cert-card__desc">
+              Deep EBS 11i/R12 administration: concurrent managers, workflow, ADI, Metalink patching,
+              and system configuration. Extensively covered in Oracle APPS knowledge base blog.
+            </p>
+          </div>
+          <div class="cert-card__footer">
+            <span class="cert-card__meta">Inferred from experience &mdash; add official cert</span>
+          </div>
+        </div>
+
+        <!-- EDIT: DevOps credential from UMass Lowell coursework -->
+        <div class="cert-card">
+          <div class="cert-card__header">
+            <span class="cert-card__badge cert-card__badge--devops">DevOps</span>
+            <span class="cert-card__status cert-card__status--inprogress">2022</span>
+          </div>
+          <div class="cert-card__body">
+            <h3 class="cert-card__title">DevOps &amp; CI/CD Engineering</h3>
+            <p class="cert-card__issuer">UMass Lowell &mdash; Professional Education</p>
+            <p class="cert-card__desc">
+              Hands-on program covering Jenkins pipelines, Kubernetes orchestration, containerisation,
+              and continuous delivery practices. Evidenced by umldevops coursework repos (2022).
+            </p>
+          </div>
+          <div class="cert-card__footer">
+            <a href="https://github.com/nandudb/pipeline" target="_blank" rel="noopener" class="cert-card__link">
+              View Pipeline Projects &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- EDIT: Ansible / Infrastructure Automation credential -->
+        <div class="cert-card">
+          <div class="cert-card__header">
+            <span class="cert-card__badge cert-card__badge--devops">Automation</span>
+            <span class="cert-card__status cert-card__status--placeholder">Add Year</span>
+          </div>
+          <div class="cert-card__body">
+            <h3 class="cert-card__title">Infrastructure Automation with Ansible</h3>
+            <p class="cert-card__issuer">Red Hat Ansible &mdash; Practitioner</p>
+            <p class="cert-card__desc">
+              Authored Ansible roles for fully automated Oracle 11gR2 installations on Linux —
+              provisioning, configuration management, and idempotent deployments at scale.
+            </p>
+          </div>
+          <div class="cert-card__footer">
+            <a href="https://github.com/nandudb/Ansible" target="_blank" rel="noopener" class="cert-card__link">
+              View Ansible Repo &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- EDIT: Cloud credential — replace with AWS/OCI/Azure cert details -->
+        <div class="cert-card">
+          <div class="cert-card__header">
+            <span class="cert-card__badge cert-card__badge--aws">Cloud</span>
+            <span class="cert-card__status cert-card__status--placeholder">Add Year</span>
+          </div>
+          <div class="cert-card__body">
+            <h3 class="cert-card__title">Cloud Infrastructure &amp; Architecture</h3>
+            <p class="cert-card__issuer">AWS / Oracle Cloud &mdash; Practitioner</p>
+            <p class="cert-card__desc">
+              Practical cloud experience spanning compute, storage, networking, and database services.
+              Projects archived in cloudprojects repo covering multi-cloud infrastructure patterns.
+            </p>
+          </div>
+          <div class="cert-card__footer">
+            <a href="https://github.com/nandudb/cloudprojects" target="_blank" rel="noopener" class="cert-card__link">
+              View Cloud Projects &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- EDIT: RAC / DataGuard credential -->
+        <div class="cert-card">
+          <div class="cert-card__header">
+            <span class="cert-card__badge cert-card__badge--oracle">Oracle</span>
+            <span class="cert-card__status cert-card__status--placeholder">Add Year</span>
+          </div>
+          <div class="cert-card__body">
+            <h3 class="cert-card__title">Oracle RAC &amp; DataGuard</h3>
+            <p class="cert-card__issuer">Oracle High Availability Specialist</p>
+            <p class="cert-card__desc">
+              Real Application Clusters configuration, DataGuard standby setup, and failover automation.
+              Workshop scripts and configurations available in the RAC Attack repo.
+            </p>
+          </div>
+          <div class="cert-card__footer">
+            <a href="https://github.com/nandudb/RAC" target="_blank" rel="noopener" class="cert-card__link">
+              View RAC Scripts &rarr;
+            </a>
+          </div>
+        </div>
+
+      </div><!-- /.certs__grid -->
+
+      <!-- CTA — remove this block once real certifications are added -->
+      <div class="certs__cta fade-up">
+        <p>
+          Have certifications to add? Open <code>index.html</code> and update the cert cards above
+          with your official credential names, issuing bodies, and years. Change the status pill to
+          <code>cert-card__status--active</code> for completed certs.
+        </p>
+      </div>
+
+    </div><!-- /.container -->
+  </section>
+
 
   <!-- ============================================================
        CONTACT SECTION
